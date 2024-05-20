@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/chess",
+    "public": "dist/chess/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
