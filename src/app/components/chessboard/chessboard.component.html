@@ -1,0 +1,14 @@
+<div class="chess-board">
+
+    @for (row of chessboardView; track row; let x = $index) {
+        <div class="row">
+            @for (piece of row; track piece; let y = $index) {
+                <div class="square" [ngClass]="{'dark': isSquareDark(x, y), 'light': !isSquareDark(x, y)}">
+                    @if (piece) {
+                        <img [src]="pieceImagePaths[piece]" [alt]="piece" class="piece">
+                    }
+                </div>
+            }
+        </div>
+    }
+</div>
