@@ -3,7 +3,12 @@
     @for (row of chessboardView; track row; let x = $index) {
         <div class="row">
             @for (piece of row; track piece; let y = $index) {
-                <div class="square" [ngClass]="{'dark': isSquareDark(x, y), 'light': !isSquareDark(x, y)}">
+                <div class="square" (click)="selectingPiece(x, y)" [ngClass]="{
+                    'dark': isSquareDark(x, y), 
+                    'light': !isSquareDark(x, y),
+                    'selected-square': isSquareSelected(x, y),
+                    }">
+                    <div [ngClass]="{'safe-square': isSquareSafeForSelectedPiece(x, y)}"></div>
                     @if (piece) {
                         <img [src]="pieceImagePaths[piece]" [alt]="piece" class="piece">
                     }
